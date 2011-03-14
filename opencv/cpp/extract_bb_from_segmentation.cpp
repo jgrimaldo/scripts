@@ -52,13 +52,12 @@ int main(int argc, char * argv[])
   {
 	std::string arg(argv[i]);
 
-	if (argv[i] == "--interactive")
+	if (arg == "--interactive")
 	{
 		cv::namedWindow("default", 0);
 		interactive = true;
 	}
-
-    if (fs::exists(argv[i]))
+	else if (fs::exists(argv[i]))
     {
     	const int flag_grayscale = 0;
     	cv::Mat1b im = cv::imread(argv[i], flag_grayscale);
@@ -93,7 +92,7 @@ int main(int argc, char * argv[])
 		cv::Rect rect = cv::boundingRect(toMatrix(best_contour));
 		cv::rectangle(im, rect, CV_RGB(255, 255, 255), 1);
 
-		std::cout << fs::complete(argv[1]) << " "
+		std::cout << fs::complete(arg) << " "
 				  << rect.x      << " "
 				  << rect.y      << " "
 				  << rect.width  << " "
