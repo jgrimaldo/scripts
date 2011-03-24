@@ -16,16 +16,18 @@ sudo apt-get --yes install ffmpeg libavformat-dev libswscale-dev
 
 # Agora instalaremos a parte que dara suporte ao gráfico
 
-sudo apt-get --yes install libgtk-2.0-dev pkg-config
+sudo apt-get --yes install libgtk2.0-0 pkg-config
+
+# Para permitir a compilação do OpenCV precisamos do cmake 
+sudo apt-get --yes install cmake
 
 # Agora devemos efetuar o download do OpenCV
 
-wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.2/OpenCV-2.2.0.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fopencvlibrary%2Ffiles%2Fopencv-unix%2F2.2%2F&ts=1298402631&use_mirror=ufpr
+wget "http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.2/OpenCV-2.2.0.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fopencvlibrary%2Ffiles%2Fopencv-unix%2F2.2%2F&ts=1298402631&use_mirror=ufpr"
 
 # Agora devemos que renomear e descompactar o OpenCV
 
-mv OpenCV-2.2.0.tar.bz2?r=http:%
-2F%2Fsourceforge.net%2Fprojects%2Fopencvlibrary%2Ffiles%2Fopencv-unix%2F2.2%2F OpenCV.tar.bz2
+mv "OpenCV-2.2.0.tar.bz2?r=http:%2F%2Fsourceforge.net%2Fprojects%2Fopencvlibrary%2Ffiles%2Fopencv-unix%2F2.2%2F&ts=1298402631&use_mirror=ufpr" OpenCV.tar.bz2
 
 tar --extract -vf OpenCV.tar.bz2
 
@@ -35,3 +37,5 @@ mkdir release
 cd release
 cmake ..
 make && sudo make install
+
+
