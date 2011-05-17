@@ -16,7 +16,7 @@ sudo apt-get --yes install ffmpeg libavformat-dev libswscale-dev
 
 # Agora instalaremos a parte que dara suporte ao gráfico
 
-sudo apt-get --yes install libgtk2.0-0 pkg-config
+sudo apt-get --yes install libgtk2.0-dev pkg-config
 
 # Para permitir a compilação do OpenCV precisamos do cmake 
 sudo apt-get --yes install cmake
